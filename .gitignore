@@ -1,0 +1,43 @@
+# 🔐 Environment variables (IMPORTANT)
+.env
+
+# 🐍 Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 📦 Virtual Environment
+venv/
+.env/
+env/
+
+# 🗄️ Database
+*.db
+*.sqlite3
+
+# 🔧 IDE / Editor
+.vscode/
+.idea/
+
+# 🧪 Testing / cache
+.pytest_cache/
+.coverage
+
+# 📝 Logs
+*.log
+
+# 📁 OS files
+.DS_Store
+Thumbs.db
+
+# 🔑 Secrets
+*.key
+*.pem
+
+# 🔥 Migrations (optional)
+alembic/versions/
+
+# 🚀 Build
+dist/
+build/
