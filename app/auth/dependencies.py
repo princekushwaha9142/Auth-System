@@ -13,12 +13,12 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
 
-# ✅ Bearer Token Security
+# Bearer Token Security
 security = HTTPBearer()
 
-# =========================
-# 🗄️ Database Dependency
-# =========================
+
+# Database Dependency
+
 def get_db():
     db = SessionLocal()
     try:
@@ -26,9 +26,9 @@ def get_db():
     finally:
         db.close()
 
-# =========================
-# 🔐 Get Current User
-# =========================
+
+# Get Current User
+
 def get_current_user(
     credentials: HTTPAuthorizationCredentials = Depends(security),
     db: Session = Depends(get_db)
@@ -56,9 +56,9 @@ def get_current_user(
 
     return user
 
-# =========================
-# 👑 Admin Check
-# =========================
+
+# Admin Check
+
 def get_current_admin(current_user: models.User = Depends(get_current_user)):
     if not current_user.is_admin:
         raise HTTPException(status_code=403, detail="Not enough permissions")

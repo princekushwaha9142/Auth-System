@@ -24,9 +24,9 @@ ALGORITHM = os.getenv("ALGORITHM")
 router = APIRouter()
 security = HTTPBearer()
 
-# =========================
-# 📝 Signup
-# =========================
+
+# Signup
+
 @router.post("/signup", response_model=schemas.UserResponse)
 def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
@@ -47,9 +47,9 @@ def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return new_user
 
 
-# =========================
+
 # 🔐 Login
-# =========================
+
 @router.post("/login")
 def login(user: schemas.LoginRequest, db: Session = Depends(get_db)):
 
@@ -65,9 +65,9 @@ def login(user: schemas.LoginRequest, db: Session = Depends(get_db)):
     }
 
 
-# =========================
+
 # 🔄 Refresh Token
-# =========================
+
 @router.post("/refresh")
 def refresh_token(data: schemas.RefreshTokenRequest):
 
@@ -87,25 +87,25 @@ def refresh_token(data: schemas.RefreshTokenRequest):
     }
 
 
-# =========================
-# 🔐 Protected Route
-# =========================
+
+# Protected Route
+
 @router.get("/me")
 def get_me(current_user: models.User = Depends(get_current_user)):
     return current_user
 
 
-# =========================
-# 👑 Admin Route
-# =========================
+
+# Admin Route
+
 @router.get("/admin")
 def admin_route(current_admin: models.User = Depends(get_current_admin)):
     return {"message": "Welcome Admin"}
 
 
-# =========================
-# 🚪 Logout
-# =========================
+
+# Logout
+
 @router.post("/logout")
 def logout(credentials: HTTPAuthorizationCredentials = Depends(security)):
     token = credentials.credentials
@@ -113,9 +113,9 @@ def logout(credentials: HTTPAuthorizationCredentials = Depends(security)):
     return {"message": "Logged out successfully"}
 
 
-# =========================
-# 🌐 GOOGLE LOGIN (FIXED)
-# =========================
+
+# GOOGLE LOGIN 
+
 @router.get("/google/login")
 async def google_login(request: Request):
     try:
@@ -125,9 +125,9 @@ async def google_login(request: Request):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-# =========================
-# 🌐 GOOGLE CALLBACK (FIXED)
-# =========================
+
+# 🌐 GOOGLE CALLBACK 
+
 @router.get("/google/callback")
 async def google_callback(request: Request, db: Session = Depends(get_db)):
 
