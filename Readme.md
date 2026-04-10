@@ -1,6 +1,6 @@
 # 🔐 FastAPI Authentication System
 
-A **production-ready backend authentication system** built with FastAPI, featuring JWT authentication, refresh tokens, role-based access control, and Google OAuth login.
+A **authentication system backend** built with FastAPI, featuring JWT authentication, refresh tokens, role-based access control, and Google OAuth login.
 
 ---
 
@@ -45,6 +45,7 @@ Auth-System/
 │   │   ├── google.py
 │   │   ├── blacklist.py
 │── .env
+│──.gitignore
 │── requirements.txt
 │── README.md
 ```
@@ -64,8 +65,7 @@ cd auth-system
 
 ```bash
 python -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate      # Windows
+source venv/bin/activate   # Linux/
 ```
 
 ### 3️⃣ Install Dependencies
