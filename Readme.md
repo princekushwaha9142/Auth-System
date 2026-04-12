@@ -1,6 +1,6 @@
 # 🔐 FastAPI Authentication System
 
-A **authentication system backend** built with FastAPI, featuring JWT authentication, refresh tokens, role-based access control, and Google OAuth login.
+An **authentication system backend** built with FastAPI, featuring JWT authentication, refresh tokens, role-based access control, and Google OAuth login.
 
 ---
 
